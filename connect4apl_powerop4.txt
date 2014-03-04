@@ -1,0 +1,10 @@
+:namespace vg
+    ind←¯1+((,⍳3 4)∘.+1 1⍉⌽⍳4 4)⍪((,⍳3 4)∘.+1 1⍉⍳4 4)⍪((,⍳3 7)∘.+,⍳4 1)⍪(,⍳6 4)∘.+,⍳1 4
+    vm←{(0=⍵[6;])/⍳7} ⋄ add←{c b s←⍵ ⋄ b[b[;c]⍳0;c]←s ⋄ b} ⋄ pp←{'A2'⎕fmt'.OX'[1+⊖⍵]}
+    pnt←{b s←⍵ ⋄ t o←+/¨s(3-s)∘.=⊂b[ind] ⋄ (+/(0=t×o)/t-o)1000[1+4∊t]}
+    val←{b s c d←⍵ ⋄ (d=0)∨1000=p←pnt(b←add c b s)s:p+d ⋄ -⌈/{val b(3-s)⍵(d-1)}¨vm b}
+    ∇ main
+      {⎕←pp ⍵ ⋄ 0=c←⍎⍞:⍬ ⋄ ⎕←pp(b←add c ⍵ 1)
+          ⍞←v←{val b 2 ⍵ 4}¨c←vm b ⋄ add c[⊃⍒v]b 2}⍣{⍺≡⍬}6 7⍴0
+    ∇
+:endnamespace
