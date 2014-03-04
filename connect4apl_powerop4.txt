@@ -4,7 +4,7 @@
     pnt←{b s←⍵ ⋄ t o←+/¨s(3-s)∘.=⊂b[ind] ⋄ (+/(0=t×o)/t-o)1000[1+4∊t]}
     val←{b s c d←⍵ ⋄ (d=0)∨1000=p←pnt(b←add c b s)s:p+d ⋄ -⌈/{val b(3-s)⍵(d-1)}¨vm b}
     ∇ main
-      {⎕←pp ⍵ ⋄ 0=c←⍎⍞:⍬ ⋄ ⎕←pp(b←add c ⍵ 1)
-          ⍞←v←{val b 2 ⍵ 4}¨c←vm b ⋄ add c[⊃⍒v]b 2}⍣{⍺≡⍬}6 7⍴0
+      b←{⎕←pp ⍵ ⋄ 0=c←⍎⍞:⍵ ⋄ ⎕←pp(b←add c ⍵ 1)
+          ⍞←v←{val b 2 ⍵ 4}¨c←vm b ⋄ add c[⊃⍒v]b 2}⍣≡6 7⍴0
     ∇
 :endnamespace
